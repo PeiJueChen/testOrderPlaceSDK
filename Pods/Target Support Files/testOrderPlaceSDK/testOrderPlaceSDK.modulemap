@@ -1,0 +1,6 @@
+framework module testOrderPlaceSDK {
+  umbrella header "testOrderPlaceSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

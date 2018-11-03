@@ -1,0 +1,16 @@
+PODS:
+  - testOrderPlaceSDK (0.0.1)
+
+DEPENDENCIES:
+  - testOrderPlaceSDK (from `./`)
+
+EXTERNAL SOURCES:
+  testOrderPlaceSDK:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  testOrderPlaceSDK: f6b558d40c32f0d7e1f752aea7b66593788d1fae
+
+PODFILE CHECKSUM: 0e955826d5061b9080c9ba4ede54b5fcb1f7545d
+
+COCOAPODS: 1.5.3
