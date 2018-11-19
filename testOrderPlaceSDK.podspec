@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 #required,就是你pod 的名字.
 s.name         = "testOrderPlaceSDK"
 #required,版本号, 这里要说一下是,因为我们正常用的 source 是:git => :tag的方式,所以每次更新新版本要打tag push to git , tag 的version 写在这里.
-s.version      = "0.0.2"
+s.version      = "0.0.3"
 #required,摘要应该简短，但内容丰富.
 s.summary      = "testOrderPlaceSDK alpha."
 #optional,官方是说可选, 但建议写上,(描述比摘要要长)注意是在<<-DESC  DESC之间写下.
@@ -11,7 +11,7 @@ s.description  = <<-DESC
 You can write your description here.
 DESC
 #required,Pod主页的URL,如果你的项目上传到gitHub,就是你项目的首地址.
-s.homepage     = "http://EXAMPLE/testOrderPlaceSDK"
+s.homepage     = "https://github.com/PeiJueChen/testOrderPlaceSDK"
 #optional,显示Pod的效果截图。 适用于面向UI的库。 CocoaPods建议使用gif格式.
 # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -20,7 +20,7 @@ s.license = { :type => 'MIT', :file => 'LICENSE' }
 #required,pod维护的作者,前面是名字,后面是email.
 s.author = { "风筝" => "13286953452@126.com" }
 #required,lib的位置,如果放在gitHub,就是gitHub项目下的地址,写上tag的版本, 新版本这样写: s.version.to_s
-s.source = { :git => "http://github.com/testOrderPlaceSDK.git", :tag => "#{s.version}" }
+s.source = { :git => "https://github.com/PeiJueChen/testOrderPlaceSDK.git", :tag => "#{s.version}" }
 #写下你代码的位置, 也可以在后面指定.{h,m,swift},如果多个逗号隔开,swift提供对外的class与method建议加上public
 s.source_files  = 'testOrderPlaceSDK/Classes/**/*'
 #排除的文件.
