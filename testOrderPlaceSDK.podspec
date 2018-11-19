@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 #required,就是你pod 的名字.
 s.name         = "testOrderPlaceSDK"
 #required,版本号, 这里要说一下是,因为我们正常用的 source 是:git => :tag的方式,所以每次更新新版本要打tag push to git , tag 的version 写在这里.
-s.version      = "0.0.1"
+s.version      = "0.0.2"
 #required,摘要应该简短，但内容丰富.
 s.summary      = "testOrderPlaceSDK alpha."
 #optional,官方是说可选, 但建议写上,(描述比摘要要长)注意是在<<-DESC  DESC之间写下.
@@ -35,10 +35,10 @@ s.ios.vendored_frameworks = 'testOrderPlaceSDK/frameworks/AlipaySDK.framework','
 #s.ios.vendored_library = 'Libraries/libProj4.a'
 
 #导入 resource 的多种方式
-s.resources = ['testOrderPlaceSDK/Assets/AlipaySDK.bundle', 'testOrderPlaceSDK/Assets/*.png']
-s.resource_bundles = {
-'testOrderPlaceSDK' => ['testOrderPlaceSDK/Assets/**/*.{storyboard,xib}']
-}
+s.resources = ['testOrderPlaceSDK/Assets/AlipaySDK.bundle']
+#s.resource_bundles = {
+#'testOrderPlaceSDK' => ['testOrderPlaceSDK/Assets/**/*.{storyboard,xib}']
+#}
 #下载后不应删除的任何文件,比如某个txt
 #s.preserve_path = 'IMPORTANT.txt'
 #s.preserve_paths = 'Frameworks/*.framework'
@@ -54,7 +54,7 @@ s.static_framework = true
 #required,指定ios版本,这个相当重要,如果 profile文件中: platform :ios, "8.0",选择的版本是8.0.但我这个pod的s.ios.deployment_target 是9.0,那这个就不会安装到ios 8.0上.对后面更新pod lib很有用.
 s.ios.deployment_target = "8.0"
 #系统 frameworks
-s.frameworks = 'CoreTelephony', 'SystemConfiguration', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion'
+s.frameworks = 'CoreTelephony', 'SystemConfiguration', 'QuartzCore', 'CoreText', 'CoreGraphics', 'UIKit', 'Foundation', 'CFNetwork', 'CoreMotion', 'AVFoundation'
 #系统 a libraries
 s.libraries = 'z', 'c++'
 
