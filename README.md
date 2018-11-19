@@ -14,7 +14,7 @@ XXX is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'XXX'
+pod 'testOrderPlaceSDK', '~> 0.0.1'
 ```
 
 ## Author
@@ -24,3 +24,5 @@ peijue chen, 13286953452@126.com
 ## License
 
 coming soon
+
+
