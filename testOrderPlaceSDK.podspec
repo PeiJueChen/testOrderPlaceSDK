@@ -22,7 +22,7 @@ s.author = { "风筝" => "13286953452@126.com" }
 #required,lib的位置,如果放在gitHub,就是gitHub项目下的地址,写上tag的版本, 新版本这样写: s.version.to_s
 s.source = { :git => "https://github.com/PeiJueChen/testOrderPlaceSDK.git", :tag => "#{s.version}" }
 #写下你代码的位置, 也可以在后面指定.{h,m,swift},如果多个逗号隔开,swift提供对外的class与method建议加上public
-s.source_files  = 'testOrderPlaceSDK/Classes/**/*'
+#s.source_files  = 'testOrderPlaceSDK/Classes/**/*'
 #排除的文件.
 #s.exclude_files = "Classes/Exclude"
 
