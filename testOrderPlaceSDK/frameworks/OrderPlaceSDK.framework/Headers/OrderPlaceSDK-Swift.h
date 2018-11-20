@@ -163,6 +163,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import Foundation;
 @import ObjectiveC;
 @import UIKit;
 @import WebKit;
@@ -182,6 +183,20 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="OrderPlaceSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
+
+@class UIViewController;
+@class OrderPlaceService;
+@class UIApplication;
+
+SWIFT_CLASS("_TtC13OrderPlaceSDK10OrderPlace")
+@interface OrderPlace : NSObject
++ (void)openUrlWithCaller:(UIViewController * _Nonnull)caller url:(NSString * _Nonnull)url options:(NSDictionary<NSString *, id> * _Nonnull)options;
++ (void)openUrlWithCaller:(UIViewController * _Nonnull)caller url:(NSString * _Nonnull)url options:(NSDictionary<NSString *, id> * _Nonnull)options services:(NSArray<OrderPlaceService *> * _Nonnull)services;
++ (void)scanWithCaller:(UIViewController * _Nonnull)caller options:(NSDictionary<NSString *, id> * _Nonnull)options;
++ (void)application:(UIApplication * _Nonnull)app open:(NSURL * _Nonnull)url;
++ (void)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC13OrderPlaceSDK17OrderPlaceService")

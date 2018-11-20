@@ -17,7 +17,7 @@ protocol OrderPlaceDelegate: AnyObject {
 }
 
 
-public class OrderPlace {
+@objc public class OrderPlace: NSObject {
     
     static weak var OPDelegate: OrderPlaceDelegate?
     
@@ -46,7 +46,7 @@ public class OrderPlace {
         
     }
     
-    public static func openUrl(caller: UIViewController, url: String, options: [String: Any]) {
+    @objc public static func openUrl(caller: UIViewController, url: String, options: [String: Any]) {
         
         print("open url")
         let controller = makeViewController(vcId: "OrderViewControllerNav") as! UINavigationController;
@@ -61,7 +61,7 @@ public class OrderPlace {
         
     }
     
-    public static func openUrl(caller: UIViewController, url: String, options: [String: Any], services: Array<OrderPlaceService>) {
+    @objc public static func openUrl(caller: UIViewController, url: String, options: [String: Any], services: Array<OrderPlaceService>) {
         
         print("open url")
         
@@ -80,7 +80,7 @@ public class OrderPlace {
         
     }
     
-    public static func scan(caller: UIViewController, options: [String: Any]) {
+    @objc public static func scan(caller: UIViewController, options: [String: Any]) {
         
         let controller = makeViewController(vcId: "ScannerViewControllerNav") as! UINavigationController;
         
@@ -92,12 +92,12 @@ public class OrderPlace {
         
     }
     
-    public static func application(_ app: UIApplication, open url: URL) {
+    @objc public static func application(_ app: UIApplication, open url: URL) {
         if let del = OPDelegate {
             del.applicationOpenUrl(app, url: url)
         }
     }
-    public static func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    @objc public static func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         
         if let dictArray = Bundle.main.object(forInfoDictionaryKey: "CFBundleURLTypes") as? [Dictionary<String, Any>] {
             for dicts in dictArray {
