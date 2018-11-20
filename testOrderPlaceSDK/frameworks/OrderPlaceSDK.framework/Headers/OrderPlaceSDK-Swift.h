@@ -173,7 +173,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if __has_feature(modules)
 @import ObjectiveC;
-@import Foundation;
+@import UIKit;
+@import WebKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -185,23 +186,43 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wnullability"
 
 SWIFT_MODULE_NAMESPACE_PUSH("OrderPlaceSDK")
-@class UIViewController;
-@class OrderPlaceService;
-@class UIApplication;
-
-SWIFT_CLASS("_TtC13OrderPlaceSDK10OrderPlace")
-@interface OrderPlace : NSObject
-+ (void)openUrlWithCaller:(UIViewController * _Nonnull)caller url:(NSString * _Nonnull)url options:(NSDictionary<NSString *, id> * _Nonnull)options;
-+ (void)openUrlWithCaller:(UIViewController * _Nonnull)caller url:(NSString * _Nonnull)url options:(NSDictionary<NSString *, id> * _Nonnull)options services:(NSArray<OrderPlaceService *> * _Nonnull)services;
-+ (void)scanWithCaller:(UIViewController * _Nonnull)caller options:(NSDictionary<NSString *, id> * _Nonnull)options;
-+ (void)application:(UIApplication * _Nonnull)app open:(NSURL * _Nonnull)url;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 
 SWIFT_CLASS("_TtC13OrderPlaceSDK17OrderPlaceService")
 @interface OrderPlaceService : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSCoder;
+@class WKWebView;
+@class WKNavigationAction;
+@class WKNavigation;
+@class WKUserContentController;
+@class WKScriptMessage;
+@class WKFrameInfo;
+@class NSBundle;
+
+SWIFT_CLASS("_TtC13OrderPlaceSDK19OrderViewController")
+@interface OrderViewController : UIViewController <WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate>
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+- (void)webView:(WKWebView * _Nonnull)webView didCommitNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (void)webView:(WKWebView * _Nonnull)webView runJavaScriptAlertPanelWithMessage:(NSString * _Nonnull)message initiatedByFrame:(WKFrameInfo * _Nonnull)frame completionHandler:(void (^ _Nonnull)(void))completionHandler;
+- (void)webView:(WKWebView * _Nonnull)webView runJavaScriptConfirmPanelWithMessage:(NSString * _Nonnull)message initiatedByFrame:(WKFrameInfo * _Nonnull)frame completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
+- (void)webView:(WKWebView * _Nonnull)webView runJavaScriptTextInputPanelWithPrompt:(NSString * _Nonnull)prompt defaultText:(NSString * _Nullable)defaultText initiatedByFrame:(WKFrameInfo * _Nonnull)frame completionHandler:(void (^ _Nonnull)(NSString * _Nullable))completionHandler;
+@property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
+
+@class UINavigationController;
+
+@interface OrderViewController (SWIFT_EXTENSION(OrderPlaceSDK)) <UINavigationControllerDelegate>
+- (void)navigationController:(UINavigationController * _Nonnull)navigationController willShowViewController:(UIViewController * _Nonnull)viewController animated:(BOOL)animated;
 @end
 
 SWIFT_MODULE_NAMESPACE_POP

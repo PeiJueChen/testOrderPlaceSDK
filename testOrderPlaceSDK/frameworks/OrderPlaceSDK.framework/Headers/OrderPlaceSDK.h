@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char OrderPlaceSDKVersionString[];
 //#import <AlipaySDK/AlipaySDK.h>
 #import <OrderPlaceSDK/AlipaySDK.h>
 #import <OrderPlaceSDK/APayAuthInfo.h>
+#import <OrderPlaceSDK/WXApi.h>
 //#import "AlipaySDK.h"
 //#import "APayAuthInfo.h"
 
