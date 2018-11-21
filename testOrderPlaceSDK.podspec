@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 #required,就是你pod 的名字.
 s.name         = "testOrderPlaceSDK"
 #required,版本号, 这里要说一下是,因为我们正常用的 source 是:git => :tag的方式,所以每次更新新版本要打tag push to git , tag 的version 写在这里.
-s.version      = "0.0.6"
+s.version      = "0.0.7"
 #required,摘要应该简短，但内容丰富.
 s.summary      = "testOrderPlaceSDK alpha."
 #optional,官方是说可选, 但建议写上,(描述比摘要要长)注意是在<<-DESC  DESC之间写下.
